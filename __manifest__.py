@@ -9,7 +9,7 @@
         Modulo final
     """,
 
-    'author': "Raul martinez",
+    'author': "Raul martinez, Alejandro Sanmartin, Isabel Ascaso, Dario Cubero",
     'website': "https://zaragoza.salesianos.edu/",
     'category': 'proyecto',
     'version': '1.0',
