@@ -21,6 +21,7 @@ class equipo(models.Model):
     nombre= fields.Char()
     clase= fields.One2many('proyecto.clase','equipos',string="equipos")
     deporte= fields.One2many('proyecto.deporte','equipos ',string="deportes")
+    color = fields.Selection((('blanco', 'Blanco'), ('negro', 'Negro'), ('azul', 'Azul'), ('rojo', 'Rojo'), ('verde', 'Verde')))
 
 class deporte(models.Model):
     _name = 'proyecto.deporte'

@@ -1,144 +1,191 @@
 <odoo>   
 
-        <record model="ir.actions.act_window" id="provincia_list_action">
-            <field name = "name">provincia</field>
-            <field name = "res_model">examen.provincia</field>
+        <record model="ir.actions.act_window" id="alumno_list_action">
+            <field name = "name">alumno</field>
+            <field name = "res_model">proyecto.alumno</field>
             <field name = "view_type">form</field>
             <field name = "view_mode">tree,form</field>
             <field name = "help" type= "html">
-                <p class="oe_view_nocontent_create">No hay ninguna provincia</p>
+                <p class="oe_view_nocontent_create">Alumnos registrados.</p>
             </field>
         </record>
         
-        <record model="ir.ui.view" id="provincia_form_view">
-            <field name="name">provincia.form</field>
-            <field name="model">examen.provincia</field>    
+        <record model="ir.ui.view" id="alumno_form_view">
+            <field name="name">alumno.form</field>
+            <field name="model">proyecto.alumno</field>    
             <field name="arch" type="xml">
-                <form string="provincia Form">
-                    <field name="nombre" />
-                    <field name="viajeog" />
-                    <field name="viajedest" />
+                <form string="alumno Form">
+                    <span>NOMBRE</span><field name="nombre" />
+                    <span>CLASE</span><field name="clase" />
                 </form>
             </field>
         </record>
         
-        <record model='ir.ui.view' id='provincia_tree_view'>
-            <field name="name">provincia.tree</field>
-            <field name="model">examen.provincia</field>
+        <record model='ir.ui.view' id='alumno_tree_view'>
+            <field name="name">alumno.tree</field>
+            <field name="model">proyecto.alumno</field>
             <field name="arch" type="xml">
-                <tree string="provincia Tree">
+                <tree string="alumno Tree">
                     <field name="nombre"/>
-                    <field name="viajeog" />
-                    <field name="viajedest" />
+                    <field name="clase" />
                 </tree>
             </field>
         </record>
 
-    <!--Conductores-->
-    
-        <record model="ir.actions.act_window" id="examen.list_conductor">
-            <field name = "name">conductor</field>
-            <field name = "res_model">examen.conductor</field>
+        <record model="ir.actions.act_window" id="clase_list_action">
+            <field name = "name">clase</field>
+            <field name = "res_model">proyecto.clase</field>
             <field name = "view_type">form</field>
             <field name = "view_mode">tree,form</field>
             <field name = "help" type= "html">
-                <p class="oe_view_nocontent_create">No hay ninguna conductor</p>
+                <p class="oe_view_nocontent_create">Clases registrados.</p>
             </field>
         </record>
-
-    <record model='ir.ui.view' id='examen.tree_conductor'>
-            <field name="name">conductor.tree</field>
-            <field name="model">examen.conductor</field>
-            <field name="arch" type="xml">
-                <tree string="conductor Tree">
-                    <field name="nombre"/>
-                    <field name="dni"/>
-                    <field name="vehiculos"/>
-                </tree>
-            </field>
-        </record>
-
         
-    <!--Vehiculos-->
-    <record model="ir.actions.act_window" id="examen.list_vehiculo">
-            <field name = "name">vehiculo</field>
-            <field name = "res_model">examen.vehiculo</field>
+        <record model="ir.ui.view" id="clase_form_view">
+            <field name="name">clase.form</field>
+            <field name="model">proyecto.clase</field>    
+            <field name="arch" type="xml">
+                <form string="clase Form">
+                    <span>NOMBRE</span><field name="nombre" />
+                    <span>ALUMNOS</span><field name="alumnos" />
+                    <span>EQUIPOS</span><field name="equipos" />
+                </form>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='clase_tree_view'>
+            <field name="name">clase.tree</field>
+            <field name="model">proyecto.clase</field>
+            <field name="arch" type="xml">
+                <tree string="clase Tree">
+                    <field name="nombre"/>
+                    <field name="alumnos" />
+                    <field name="equipos" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="equipo_list_action">
+            <field name = "name">equipo</field>
+            <field name = "res_model">proyecto.equipo</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form</field>
+            <field name="context" eval="{'actor_search_view':2}"/>
+            <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">Equipos registrados.</p>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="equipo_form_view">
+            <field name="name">equipo.form</field>
+            <field name="model">proyecto.equipo</field>    
+            <field name="arch" type="xml">
+                <form string="equipo Form">
+                    <span>NOMBRE</span><field name="nombre" />
+                    <span>CLASE</span><field name="clase" />
+                    <span>DEPORTE</span><field name="deporte" />
+                    <span>COLOR</span><field name="color" />
+                </form>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='equipo_tree_view'>
+            <field name="name">equipo.tree</field>
+            <field name="model">proyecto.equipo</field>
+            <field name="arch" type="xml">
+                <tree string="equipo Tree">
+                    <field name="nombre"/>
+                    <field name="clase" />
+                    <field name="deporte" />
+                    <field name="color" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="equipo_search_view">
+            <field name="name">equipo.search</field>
+            <field name="model">proyecto.equipo</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre"/>
+                    <field name="clase" />
+                    <field name="deporte" />
+                    <field name="color" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="deporte_list_action">
+            <field name = "name">deporte</field>
+            <field name = "res_model">proyecto.deporte</field>
             <field name = "view_type">form</field>
             <field name = "view_mode">tree,form</field>
             <field name = "help" type= "html">
-                <p class="oe_view_nocontent_create">No hay ninguna vehiculo</p>
+                <p class="oe_view_nocontent_create">Deportes registrados.</p>
             </field>
         </record>
-
-    <record model='ir.ui.view' id='examen.tree_vehiculo'>
-            <field name="name">vehiculo.tree</field>
-            <field name="model">examen.vehiculo</field>
+        
+        <record model="ir.ui.view" id="deporte_form_view">
+            <field name="name">deporte.form</field>
+            <field name="model">proyecto.deporte</field>    
             <field name="arch" type="xml">
-                <tree string="vehiculo Tree">
-    
-                    <field name="marca"/>
-                    <field name="color"/>
-                    <field name="numasientos"/>
-                    <field name="conductores"/>
-                
+                <form string="deporte Form">
+                    <span>NOMBRE</span><field name="nombre" />
+                    <span>EQUIPOS</span><field name="equipos" />
+                    <span>PARTIDOS</span><field name="partidos" />
+                </form>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='deporte_tree_view'>
+            <field name="name">deporte.tree</field>
+            <field name="model">proyecto.deporte</field>
+            <field name="arch" type="xml">
+                <tree string="deporte Tree">
+                    <field name="nombre"/>
+                    <field name="equipos" />
+                    <field name="partidos" />
                 </tree>
             </field>
         </record>
-<!--Viajes-->
-    <record model="ir.actions.act_window" id="examen.list_viaje">
-            <field name = "name">viaje</field>
-            <field name = "res_model">examen.viaje</field>
+
+        <record model="ir.actions.act_window" id="partido_list_action">
+            <field name = "name">partido</field>
+            <field name = "res_model">proyecto.partido</field>
             <field name = "view_type">form</field>
-            <field name = "view_mode">tree,form,calendar</field>
+            <field name = "view_mode">tree,form</field>
             <field name = "help" type= "html">
-                <p class="oe_view_nocontent_create">No hay ninguna viaje</p>
+                <p class="oe_view_nocontent_create">Partidos registrados.</p>
             </field>
         </record>
-
-    <record model='ir.ui.view' id='examen.tree_viaje'>
-            <field name="name">viaje.tree</field>
-            <field name="model">examen.viaje</field>
+        
+        <record model="ir.ui.view" id="partido_form_view">
+            <field name="name">partido.form</field>
+            <field name="model">proyecto.partido</field>    
             <field name="arch" type="xml">
-                <tree string="viaje Tree">
-                    <field name="vehiculoid"/>
-                    <field name="provinciaog"/>
-                    <field name="provinciadest"/>
-                    <field name="fecha"/>
-                    <field name="duracion"/>
-                     
+                <form string="partido Form">
+                    <span>DEPORTE</span><field name="deporte" />
+                </form>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='partido_tree_view'>
+            <field name="name">partido.tree</field>
+            <field name="model">proyecto.partido</field>
+            <field name="arch" type="xml">
+                <tree string="partido Tree">
+                    <field name="deporte"/>
                 </tree>
             </field>
         </record>
-        <!--Seguro-->
-        <record model="ir.actions.act_window" id="examen.list_seguro">
-                <field name = "name">seguro</field>
-                <field name = "res_model">examen.seguro</field>
-                <field name = "view_type">form</field>
-                <field name = "view_mode">tree,form,calendar</field>
-                <field name = "help" type= "html">
-                    <p class="oe_view_nocontent_create">No hay ninguna seguro</p>
-                </field>
-            </record>
 
-        <record model='ir.ui.view' id='examen.tree_seguro'>
-                <field name="name">seguro.tree</field>
-                <field name="model">examen.seguro</field>
-                <field name="arch" type="xml">
-                    <tree string="seguro Tree">
-                        <field name="vehiculoid"/>
-                        <field name="nombre"/>
-                        <field name="fecha"/>
-                    </tree>
-                </field>
-        </record>
-
-        <menuitem id="base_menu" name="Examen Raul"/>      
-        <menuitem id="modulo_base" name="Examen" parent = "base_menu"/>
-        <menuitem id="provincia_menu" name="Provincia" parent = "modulo_base" action = "provincia_list_action"/>
-        <menuitem id="conductor_menu" name="conductor" parent = "modulo_base" action = "examen.list_conductor"/>
-        <menuitem id="vehiculo_menu" name="vehiculo" parent = "modulo_base" action = "examen.list_vehiculo"/>
-        <menuitem id="viaje_menu" name="viaje" parent = "modulo_base" action = "examen.list_viaje"/>
-        <menuitem id="seguro_menu" name="seguro" parent = "modulo_base" action = "examen.list_seguro"/>
-
+        <menuitem id="base_menu" name="Modulo Final"/>      
+        <menuitem id="modulo_base" name="Modulo Final" parent = "base_menu"/>
+        <menuitem id="alumno_menu" name="Alumno" parent = "modulo_base" action = "alumno_list_action"/>
+        <menuitem id="clase_menu" name="Clase" parent = "modulo_base" action = "clase_list_action"/>
+        <menuitem id="equipo_menu" name="Equipo" parent = "modulo_base" action = "equipo_list_action"/>
+        <menuitem id="deporte_menu" name="Deporte" parent = "modulo_base" action = "deporte_list_action"/>
+        <menuitem id="partido_menu" name="Partido" parent = "modulo_base" action = "partido_list_action"/>
 
 </odoo>
