@@ -84,6 +84,7 @@
                     <span>NOMBRE</span><field name="nombre" />
                     <span>CLASE</span><field name="clase" />
                     <span>DEPORTE</span><field name="deporte" />
+                    <span>COLOR</span><field name="color" />
                 </form>
             </field>
         </record>
@@ -96,6 +97,7 @@
                     <field name="nombre"/>
                     <field name="clase" />
                     <field name="deporte" />
+                    <field name="color" />
                 </tree>
             </field>
         </record>
