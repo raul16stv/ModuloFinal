@@ -71,6 +71,7 @@
             <field name = "res_model">proyecto.equipo</field>
             <field name = "view_type">form</field>
             <field name = "view_mode">tree,form</field>
+            <field name="context" eval="{'actor_search_view':2}"/>
             <field name = "help" type= "html">
                 <p class="oe_view_nocontent_create">Equipos registrados.</p>
             </field>
@@ -99,6 +100,19 @@
                     <field name="deporte" />
                     <field name="color" />
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="equipo_search_view">
+            <field name="name">equipo.search</field>
+            <field name="model">proyecto.equipo</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre"/>
+                    <field name="clase" />
+                    <field name="deporte" />
+                    <field name="color" />
+                </search>
             </field>
         </record>
 
