@@ -1,0 +1,144 @@
+<odoo>   
+
+        <record model="ir.actions.act_window" id="provincia_list_action">
+            <field name = "name">provincia</field>
+            <field name = "res_model">examen.provincia</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form</field>
+            <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">No hay ninguna provincia</p>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="provincia_form_view">
+            <field name="name">provincia.form</field>
+            <field name="model">examen.provincia</field>    
+            <field name="arch" type="xml">
+                <form string="provincia Form">
+                    <field name="nombre" />
+                    <field name="viajeog" />
+                    <field name="viajedest" />
+                </form>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='provincia_tree_view'>
+            <field name="name">provincia.tree</field>
+            <field name="model">examen.provincia</field>
+            <field name="arch" type="xml">
+                <tree string="provincia Tree">
+                    <field name="nombre"/>
+                    <field name="viajeog" />
+                    <field name="viajedest" />
+                </tree>
+            </field>
+        </record>
+
+    <!--Conductores-->
+    
+        <record model="ir.actions.act_window" id="examen.list_conductor">
+            <field name = "name">conductor</field>
+            <field name = "res_model">examen.conductor</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form</field>
+            <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">No hay ninguna conductor</p>
+            </field>
+        </record>
+
+    <record model='ir.ui.view' id='examen.tree_conductor'>
+            <field name="name">conductor.tree</field>
+            <field name="model">examen.conductor</field>
+            <field name="arch" type="xml">
+                <tree string="conductor Tree">
+                    <field name="nombre"/>
+                    <field name="dni"/>
+                    <field name="vehiculos"/>
+                </tree>
+            </field>
+        </record>
+
+        
+    <!--Vehiculos-->
+    <record model="ir.actions.act_window" id="examen.list_vehiculo">
+            <field name = "name">vehiculo</field>
+            <field name = "res_model">examen.vehiculo</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form</field>
+            <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">No hay ninguna vehiculo</p>
+            </field>
+        </record>
+
+    <record model='ir.ui.view' id='examen.tree_vehiculo'>
+            <field name="name">vehiculo.tree</field>
+            <field name="model">examen.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="vehiculo Tree">
+    
+                    <field name="marca"/>
+                    <field name="color"/>
+                    <field name="numasientos"/>
+                    <field name="conductores"/>
+                
+                </tree>
+            </field>
+        </record>
+<!--Viajes-->
+    <record model="ir.actions.act_window" id="examen.list_viaje">
+            <field name = "name">viaje</field>
+            <field name = "res_model">examen.viaje</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form,calendar</field>
+            <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">No hay ninguna viaje</p>
+            </field>
+        </record>
+
+    <record model='ir.ui.view' id='examen.tree_viaje'>
+            <field name="name">viaje.tree</field>
+            <field name="model">examen.viaje</field>
+            <field name="arch" type="xml">
+                <tree string="viaje Tree">
+                    <field name="vehiculoid"/>
+                    <field name="provinciaog"/>
+                    <field name="provinciadest"/>
+                    <field name="fecha"/>
+                    <field name="duracion"/>
+                     
+                </tree>
+            </field>
+        </record>
+        <!--Seguro-->
+        <record model="ir.actions.act_window" id="examen.list_seguro">
+                <field name = "name">seguro</field>
+                <field name = "res_model">examen.seguro</field>
+                <field name = "view_type">form</field>
+                <field name = "view_mode">tree,form,calendar</field>
+                <field name = "help" type= "html">
+                    <p class="oe_view_nocontent_create">No hay ninguna seguro</p>
+                </field>
+            </record>
+
+        <record model='ir.ui.view' id='examen.tree_seguro'>
+                <field name="name">seguro.tree</field>
+                <field name="model">examen.seguro</field>
+                <field name="arch" type="xml">
+                    <tree string="seguro Tree">
+                        <field name="vehiculoid"/>
+                        <field name="nombre"/>
+                        <field name="fecha"/>
+                    </tree>
+                </field>
+        </record>
+
+        <menuitem id="base_menu" name="Examen Raul"/>      
+        <menuitem id="modulo_base" name="Examen" parent = "base_menu"/>
+        <menuitem id="provincia_menu" name="Provincia" parent = "modulo_base" action = "provincia_list_action"/>
+        <menuitem id="conductor_menu" name="conductor" parent = "modulo_base" action = "examen.list_conductor"/>
+        <menuitem id="vehiculo_menu" name="vehiculo" parent = "modulo_base" action = "examen.list_vehiculo"/>
+        <menuitem id="viaje_menu" name="viaje" parent = "modulo_base" action = "examen.list_viaje"/>
+        <menuitem id="seguro_menu" name="seguro" parent = "modulo_base" action = "examen.list_seguro"/>
+
+
+</odoo>
